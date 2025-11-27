@@ -1,7 +1,6 @@
 # The funmixer apptainer container
 
-This document contains instructions for running the funmixer container in apptainer. 
-
+This document contains instructions for building and running the funmixer container in apptainer. 
 
 
 ## First steps: installing apptainer
@@ -106,4 +105,7 @@ $ apptainer shell --bind /my/funmixer/data:/funmixer_data funmixer_container.sif
 The path before the `:` is the path on your computer, and the path after is the path in the container. So when you are in the container you would navigate to `cd /funmixer_data` to see your data. 
 
 
+## History
+
+* Version 1.0 Simon Mudd 27-Nov-2025. First version of the container.
 
