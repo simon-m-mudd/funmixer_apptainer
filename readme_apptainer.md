@@ -70,8 +70,8 @@ wsl install
 
 ## Now, build the container
 
-The apptainer container is built using instructions in the `funmixer_apptainer.def`. It assumes you have this file in the directory structure that you created when you cloned this repository. That is `/path/to/this/repo/funmixer/apptainer/`
-The `.def` file reads the `requirements.yaml` file from a relative path so don't move either the `.def` file or the `requirements.yaml` file. 
+The apptainer container is built using instructions in the `funmixer_apptainer.def`. It assumes you have this file in the base directory of funmixer after cloning. That is `/path/to/this/repo/funmixer/`
+The `.def` file reads the `requirements.yaml` file from a relative path (in this case just `./`) so don't move either the `.def` file or the `requirements.yaml` file. 
 
 In the directory with `funmixer_container.def` run:
 
@@ -84,7 +84,7 @@ This will take some time. Even on a fast internet connection it can take 10 minu
 
 ## Now run the container
 
-You should now have a file called `funmixer_container.sif`. This is the actual container. It has a functionion Ubuntu operating system and python environemt on it, so it is not small: 250 Mb
+You should now have a file called `funmixer_container.sif`. This is the actual container. It has a functioning Ubuntu operating system and python environemt on it, so it is not small: 250 Mb.
 
 To run the container, use
 
@@ -102,10 +102,11 @@ If you have data in your Linux system somewhere, you can bind this data to the a
 $ apptainer shell --bind /my/funmixer/data:/funmixer_data funmixer_container.sif
 ```
 
-The path before the `:` is the path on your computer, and the path after is the path in the container. So when you are in the container you would navigate to `cd /funmixer_data` to see your data. 
+The path before the `:` is the path on your computer, and the path after is the path in the container. So when you are in the container you would navigate to `cd /funmixer_data` to see your data. Note that if you are using Ubuntu inside of Windows Linux Subsystem you will need to make sure your Ubuntu system in WSL can see the directory with your data first (that is, you need to make data visible to WSL when you start it, and then to apptainer when you start that).
 
 
 ## History
 
 * Version 1.0 Simon Mudd 27-Nov-2025. First version of the container.
+* Version 1.1 Simon Mudd 01-Dec-2025. Changed relative paths, placed the .def file in main repository, and updated instructions.
 

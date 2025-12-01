@@ -9,7 +9,7 @@ From: ubuntu:22.04
 
 %files
     # Place requirements.yaml alongside this .def
-    ../requirements.yaml /opt/env/requirements.yaml
+    ./requirements.yaml /opt/env/requirements.yaml
 
 %environment
     # Runtime env (NOT used during build)
